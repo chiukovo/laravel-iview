@@ -15,7 +15,7 @@
                 <div class="title">
                     <info-msg ref="info"></info-msg>
                 </div>
-                <button @click="same">同樣效果</button>
+                <button @click="same">在外層同樣可呼叫component method</button>
             </div>
         </div>
     </body>
@@ -25,7 +25,7 @@
             el: '#content',
             methods: {
                 same () {
-                    this.$refs.info.open(false);
+                    this.$refs.info.success(false);
                 }
             }
         });
