@@ -1,5 +1,6 @@
 
 window._ = require('lodash');
+require('es6-promise');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
