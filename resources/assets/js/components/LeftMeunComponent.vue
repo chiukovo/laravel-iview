@@ -1,3 +1,9 @@
+<style type="text/css">
+    .inlineA {
+        color: rgba(255,255,255,.7);
+        display: block;
+    }
+</style>
 <template>
     <Col span="6">
         <Menu :theme="theme2" :open-names="['']" accordion>
@@ -6,15 +12,9 @@
                     <Icon type="ios-paper"></Icon>
                     内容管理
                 </template>
-                <a href="/welcome">
-                    <MenuItem name="1-1">welcome</MenuItem>
-                </a>
-                <a href="/">
-                    <MenuItem name="1-2">index</MenuItem>
-                </a>
-                <a href="/login">
-                    <MenuItem name="1-3">login</MenuItem>
-                </a>
+                <MenuItem name="1-1"><a class="inlineA" href="/welcome">welcome</a></MenuItem>
+                <MenuItem name="1-2"><a class="inlineA" href="/">index</a></MenuItem>
+                <MenuItem name="1-3"><a class="inlineA" href="/login">login</a></MenuItem>
             </Submenu>
             <Submenu name="2">
                 <template slot="title">

@@ -18,3 +18,12 @@ require('iview');
 
 Vue.component('info-msg', require('./components/ExampleComponent.vue'));
 Vue.component('left-menu', require('./components/LeftMeunComponent.vue'));
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var pjax = new Pjax({
+    elements: 'a',
+    selectors: ['#content'],
+    // currentUrlFullReload: true,
+  })
+});

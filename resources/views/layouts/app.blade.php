@@ -12,6 +12,8 @@
     <body>
         <div id="left-menu">
             <left-menu></left-menu>
+        </div>
+        <div id="content">
             @yield('content')
         </div>
     </body>

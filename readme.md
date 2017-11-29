@@ -1,4 +1,4 @@
-# Laravel 5.5 + vue2.5 + iview = awesome XD
+# Laravel 5.5 + vue2.5 + iview + pjax = awesome XD
 
 ### install
 - ``composer install``
