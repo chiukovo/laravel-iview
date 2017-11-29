@@ -17,3 +17,4 @@ require('iview');
  */
 
 Vue.component('info-msg', require('./components/ExampleComponent.vue'));
+Vue.component('left-menu', require('./components/LeftMeunComponent.vue'));

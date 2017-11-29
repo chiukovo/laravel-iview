@@ -1,5 +1,6 @@
 
 window._ = require('lodash');
+window.Pjax = require('pjax');
 require('es6-promise');
 
 /**
