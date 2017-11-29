@@ -49,6 +49,7 @@
             }
             .ivu-menu-item a {
                 display: block;
+                width: 100%;
                 color: rgba(255,255,255,.7);
             }
         </style>
@@ -91,7 +92,7 @@
                     <div class="layout-header"></div>
                     <div class="layout-breadcrumb">
                         <breadcrumb>
-                            <breadcrumb-item href="#">Home</breadcrumb-item>
+                            <breadcrumb-item href="/">Home</breadcrumb-item>
                             <breadcrumb-item href="#">Projects</breadcrumb-item>
                             <breadcrumb-item>iView</breadcrumb-item>
                         </breadcrumb>
