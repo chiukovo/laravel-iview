@@ -11,13 +11,14 @@ class EggController extends Controller
 {
     const QUNI = 'FCE51FF4B9484E6';
     const CHIUKO = '00280F10F793494';
+    const OTHER = '0AC173E7B19241C';
 
     public function index()
     {
         $log = [];
         $trueCount = 0;
 
-        for ($i=100; $i <= 130; $i++) {
+        for ($i=242; $i <= 242; $i++) {
             //待采集的目标页面
             $page = 'https://forum.gamer.com.tw/C.php?bsn=34292&snA=21&tnum=4423&page=' . $i;
 
@@ -42,7 +43,7 @@ class EggController extends Controller
 
                     $postData = [
                         'userId' => $code,
-                        'friendId' => self::QUNI,
+                        'friendId' => self::CHIUKO,
                     ];
                     $log[] = $code;
 
@@ -66,15 +67,37 @@ class EggController extends Controller
         $request = Request::input();
 
         if ( isset($request['num']) ) {
-            for ($i=1; $i <= $request['num']; $i++) {
-                $postData = [
-                    'userId' => self::CHIUKO,
-                    'friendId' => self::CHIUKO,
-                ];
+            //待采集的目标页面
+            $page = 'https://forum.gamer.com.tw/C.php?bsn=34292&snA=21&tnum=4423&page=' . $request['num'];
+            //列表选择器
+            $list = '.c-reply__item';
+            //采集规则
+            $rules = array(
+                'url' => ['.reply-content .reply-content__article span', 'text'],
+            );
+            //采集
+            $result = QueryList::Query($page, $rules, $list)->data;
 
-                $res = Curl::to('http://www.stoneagem.com/achievepet')
-                    ->withData($postData)
-                    ->post();
+            foreach ($result as $value) {
+                $url = $value['url'];
+                $explode = explode("http://stoneagem.com/", $url);
+
+                if ( isset($explode[1]) ) {
+                    $code = $explode[1];
+                    $code = preg_replace('/([\x80-\xff]*)/i', '', $code);
+
+                    $postData = [
+                        'userId' => self::CHIUKO,
+                        'friendId' => $code,
+                    ];
+                    $log[] = $code;
+
+                    $res = Curl::to('http://www.stoneagem.com/achievepet')
+                        ->withData($postData)
+                        ->post();
+
+                    $res = json_decode($res, true);
+                }
             }
 
             return 'done';
