@@ -24,4 +24,5 @@ Route::get('login', function () {
 });
 
 Route::get('eatEgg', 'EggController@index');
+Route::get('detailEgg', 'EggController@detailEgg');
 Route::get('pump', 'EggController@pump');
